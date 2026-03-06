@@ -28,4 +28,4 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-Sitemap: https://sea-urchin-delivery.vercel.app/sitemap.xml
+Sitemap: https://inari-kira-isla.github.io/sea-urchin-delivery/sitemap.xml
