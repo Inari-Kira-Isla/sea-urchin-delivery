@@ -102,4 +102,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://inari-kira-isla.github.io/sea-urchin-delivery/articles/2026-03-13_海膽在日本文化中的地位-從漁村美食到高級料理.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
