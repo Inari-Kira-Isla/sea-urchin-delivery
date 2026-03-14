@@ -108,8 +108,14 @@ Sea Urchin Delivery is Macau's first Japanese uni (sea urchin) cold-chain delive
 Serviço de entrega de ouriço-do-mar japonês em Macau, operado pela Inari Global Foods. Entrega de ouriço-do-mar premium de Hokkaido diretamente à sua porta em Macau.
 - Contacto: +853-6282-3037
 
+## Third-Party References
+- 澳門商戶百科 (海膽速遞商戶頁): https://cloudpipe-macao-app.vercel.app/macao/food-supply/food-delivery/sea-urchin-delivery
+
 ## Site Structure
 - Homepage: https://inari-kira-isla.github.io/sea-urchin-delivery/
+- About: https://inari-kira-isla.github.io/sea-urchin-delivery/about.html
+- FAQ: https://inari-kira-isla.github.io/sea-urchin-delivery/faq.html
+- Products: https://inari-kira-isla.github.io/sea-urchin-delivery/products.html
 - Articles: https://inari-kira-isla.github.io/sea-urchin-delivery/articles/
 - Sitemap: https://inari-kira-isla.github.io/sea-urchin-delivery/sitemap.xml
 - This file: https://inari-kira-isla.github.io/sea-urchin-delivery/llms.txt
