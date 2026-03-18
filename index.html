@@ -705,6 +705,343 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* === KNOWLEDGE BASE === */
+    .kb-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid rgba(11, 29, 58, 0.1);
+      margin-bottom: 28px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .kb-tabs::-webkit-scrollbar { display: none; }
+
+    .kb-tab {
+      padding: 14px 24px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s ease;
+    }
+    .kb-tab:hover { color: var(--navy); }
+    .kb-tab.active {
+      color: var(--navy);
+      border-bottom-color: var(--gold);
+    }
+
+    .kb-panel { display: none; }
+    .kb-panel.active { display: block; }
+
+    .kb-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .kb-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(11, 29, 58, 0.04);
+      border-top: 3px solid var(--gold);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .kb-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .kb-card h4 {
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .kb-card .kb-origin {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .kb-card p {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    .kb-tag {
+      display: inline-block;
+      background: var(--gold-glow);
+      color: var(--navy-deep);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+
+    .kb-grade-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+    .kb-grade-table th, .kb-grade-table td {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(11, 29, 58, 0.06);
+    }
+    .kb-grade-table th {
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 600;
+    }
+    .kb-grade-table th:first-child { border-radius: 8px 0 0 0; }
+    .kb-grade-table th:last-child { border-radius: 0 8px 0 0; }
+    .kb-grade-table tr:hover { background: var(--gold-glow); }
+    .kb-grade-badge {
+      display: inline-block;
+      width: 28px; height: 28px;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: var(--white);
+    }
+    .kb-grade-badge.grade-a { background: var(--ocean-teal); }
+    .kb-grade-badge.grade-b { background: var(--gold); }
+    .kb-grade-badge.grade-c { background: var(--coral); }
+
+    .kb-storage-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 16px;
+    }
+    .kb-storage-list li {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--ocean-teal);
+    }
+    .kb-storage-list li h4 {
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .kb-storage-list li p {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      margin-bottom: 0;
+    }
+
+    .kb-freshness-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .kb-freshness-box {
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .kb-freshness-box.fresh {
+      background: linear-gradient(135deg, var(--ocean-light) 0%, var(--cream) 100%);
+      border: 1px solid rgba(42, 157, 143, 0.2);
+    }
+    .kb-freshness-box.unfresh {
+      background: linear-gradient(135deg, #fef2f0 0%, var(--cream) 100%);
+      border: 1px solid rgba(231, 111, 81, 0.2);
+    }
+    .kb-freshness-box h4 {
+      margin-bottom: 12px;
+    }
+    .kb-freshness-box ul {
+      padding-left: 18px;
+      font-size: 0.9rem;
+    }
+    .kb-freshness-box li { margin-bottom: 6px; }
+
+    @media (max-width: 768px) {
+      .kb-freshness-grid { grid-template-columns: 1fr; }
+      .kb-grade-table { font-size: 0.82rem; }
+      .kb-grade-table th, .kb-grade-table td { padding: 8px 10px; }
+    }
+
+    /* === GOOGLE MAP === */
+    .map-container {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-top: 28px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      display: block;
+    }
+
+    /* === CHATBOT WIDGET === */
+    .chatbot-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(201, 168, 76, 0.4);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .chatbot-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(201, 168, 76, 0.5);
+    }
+    .chatbot-btn svg { width: 26px; height: 26px; fill: var(--navy-deep); }
+
+    .chatbot-panel {
+      position: fixed;
+      bottom: 92px;
+      right: 24px;
+      width: 360px;
+      height: 500px;
+      background: var(--navy-deep);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.35);
+      z-index: 9998;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chatbot-panel.open { display: flex; }
+
+    .chatbot-header {
+      background: var(--navy);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .chatbot-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .chatbot-header-info h4 {
+      color: var(--white);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    .chatbot-header-info span {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+    }
+    .chatbot-close {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+    .chatbot-close:hover { color: var(--white); }
+
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .chatbot-messages::-webkit-scrollbar { width: 4px; }
+    .chatbot-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+    .chat-msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+    .chat-msg.bot {
+      background: var(--navy-light);
+      color: rgba(255,255,255,0.9);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    .chat-msg.user {
+      background: var(--gold);
+      color: var(--navy-deep);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      font-weight: 500;
+    }
+
+    .chatbot-input-area {
+      padding: 12px 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      gap: 8px;
+    }
+    .chatbot-input-area input {
+      flex: 1;
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--white);
+      font-size: 0.88rem;
+      font-family: inherit;
+      outline: none;
+    }
+    .chatbot-input-area input::placeholder { color: rgba(255,255,255,0.35); }
+    .chatbot-input-area input:focus { border-color: var(--gold); }
+    .chatbot-input-area button {
+      background: var(--gold);
+      border: none;
+      border-radius: 10px;
+      padding: 0 16px;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--navy-deep);
+      font-size: 0.9rem;
+    }
+    .chatbot-input-area button:hover { background: var(--gold-light); }
+
+    @media (max-width: 480px) {
+      .chatbot-panel {
+        width: calc(100vw - 24px);
+        right: 12px;
+        bottom: 88px;
+        height: 60vh;
+      }
+    }
   </style>
 <link rel="alternate" hreflang="zh-TW" href="https://inari-kira-isla.github.io/sea-urchin-delivery">
 <link rel="alternate" hreflang="zh-CN" href="https://inari-kira-isla.github.io/sea-urchin-delivery">
@@ -754,7 +1091,9 @@
       <li><a href="#process">日本直送流程</a></li>
       <li><a href="#coldchain">冷鏈物流保障</a></li>
       <li><a href="#order">訂購方式</a></li>
+      <li><a href="#knowledge">知識庫</a></li>
       <li><a href="#faq">常見問題</a></li>
+      <li><a href="#" onclick="toggleChatbot();return false;">AI 助手</a></li>
     </ul>
   </nav>
 
@@ -917,6 +1256,208 @@
       <p><strong>澳門本地：</strong>單次訂購滿 MOP 500 即享免費配送。未達最低訂購金額的訂單收取 MOP 30 配送費。<strong>大灣區城市：</strong>珠海 MOP 50、中山及廣州 MOP 80、深圳 MOP 100、香港 MOP 120。單次訂購滿 MOP 2,000 的大灣區訂單享免運費優惠。</p>
     </section>
 
+    <!-- === MAP === -->
+    <section id="location">
+      <h2>我們的位置</h2>
+      <p class="section-intro">位於澳門氹仔海洋花園大馬路，歡迎到訪或預約取貨。</p>
+      <div class="map-container">
+        <iframe src="https://maps.google.com/maps?q=22.1533,113.5572&z=15&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="海膽速遞位置 - 澳門氹仔海洋花園大馬路"></iframe>
+      </div>
+    </section>
+
+    <!-- === KNOWLEDGE BASE === -->
+    <section id="knowledge">
+      <h2>海膽知識庫</h2>
+      <p class="section-intro">深入了解海膽品種、分級標準與保存方法，成為真正的海膽行家。</p>
+
+      <div class="kb-tabs" role="tablist">
+        <button class="kb-tab active" role="tab" onclick="switchKbTab('varieties')" data-tab="varieties">品種圖鑑</button>
+        <button class="kb-tab" role="tab" onclick="switchKbTab('grading')" data-tab="grading">分級標準</button>
+        <button class="kb-tab" role="tab" onclick="switchKbTab('storage')" data-tab="storage">保存方法</button>
+      </div>
+
+      <!-- Tab 1: Varieties -->
+      <div class="kb-panel active" id="kb-varieties">
+        <p>全球海膽品種超過 900 種，但被料理界廣泛使用的頂級食用品種主要有以下六種。每種海膽的風味、口感、產季及適合的料理方式各有不同。</p>
+        <div class="kb-card-grid">
+          <div class="kb-card">
+            <h4>馬糞海膽 Bafun Uni</h4>
+            <span class="kb-origin">產地：日本北海道</span>
+            <p>甘甜濃郁，帶有堅果香氣，入口即化，回味悠長。色澤呈鮮豔橙黃色，顆粒分明。</p>
+            <span class="kb-tag">產季 9月-2月</span>
+            <span class="kb-tag">刺身 / 壽司</span>
+          </div>
+          <div class="kb-card">
+            <h4>紫海膽 Purple Uni</h4>
+            <span class="kb-origin">產地：日本東北</span>
+            <p>味道濃郁，帶有微微苦味及明顯的海水鹹香。肉色呈深橘紅，深紫色外殼。</p>
+            <span class="kb-tag">產季 11月-3月</span>
+            <span class="kb-tag">軍艦壽司 / 拌飯</span>
+          </div>
+          <div class="kb-card">
+            <h4>加拿大紅海膽 Canadian Red Uni</h4>
+            <span class="kb-origin">產地：加拿大不列顛哥倫比亞</span>
+            <p>甜美柔和，奶香濃郁，口感飽滿。大型個體可達 10cm 以上，深紅色至橙紅色。</p>
+            <span class="kb-tag">全年供應</span>
+            <span class="kb-tag">高級料理 / 宴會</span>
+          </div>
+          <div class="kb-card">
+            <h4>緬因海膽 Maine Uni</h4>
+            <span class="kb-origin">產地：美國緬因州</span>
+            <p>清甜爽口，帶有淡淡的海洋鮮味。黑色刺狀外殼，淺橙色肉質。</p>
+            <span class="kb-tag">產季 5月-10月</span>
+            <span class="kb-tag">沙拉 / 前菜</span>
+          </div>
+          <div class="kb-card">
+            <h4>智利海膽 Chilean Uni</h4>
+            <span class="kb-origin">產地：智利</span>
+            <p>價格實惠，味道鮮美，帶有獨特的南美風味鹹香。黃橙色澤，中等大小。</p>
+            <span class="kb-tag">產季 3月-8月</span>
+            <span class="kb-tag">家庭料理 / 餐廳備料</span>
+          </div>
+          <div class="kb-card">
+            <h4>澳洲海膽 Australian Uni</h4>
+            <span class="kb-origin">產地：澳洲</span>
+            <p>肉質結實，風味獨特，帶有微微的甘甜。深綠色外殼，金黃色肉質。</p>
+            <span class="kb-tag">產季 6月-11月</span>
+            <span class="kb-tag">東南亞料理 / 創意菜</span>
+          </div>
+        </div>
+        <div class="info-box" style="margin-top: 28px;">
+          <h3>選購新鮮海膽小貼士</h3>
+          <ul>
+            <li><strong>觀察顏色：</strong>優質海膽呈鮮豔橙黃色或深紅色，色澤暗淡表示不新鮮。</li>
+            <li><strong>檢查氣味：</strong>應有淡淡海水清香，絕不應有刺鼻異味。</li>
+            <li><strong>觸摸質感：</strong>肉質應飽滿有彈性，軟爛代表已不新鮮。</li>
+            <li><strong>查看日期：</strong>選擇最新鮮的批次，留意包裝上的採撈及加工日期。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 2: Grading -->
+      <div class="kb-panel" id="kb-grading">
+        <p>海膽根據外觀、色澤、口感及新鮮度分為三個等級。了解分級標準有助於根據不同用途選擇最合適的產品。</p>
+        <table class="kb-grade-table">
+          <thead>
+            <tr>
+              <th>等級</th>
+              <th>外觀</th>
+              <th>味道</th>
+              <th>口感</th>
+              <th>適用場景</th>
+              <th>參考價</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="kb-grade-badge grade-a">A</span></td>
+              <td>完整飽滿、顆粒分明、色澤鮮豔</td>
+              <td>甜美濃郁，無苦味</td>
+              <td>柔軟嫩滑，入口即化</td>
+              <td>頂級壽司店、高級日料、宴會</td>
+              <td>HKD $800-1,500/kg</td>
+            </tr>
+            <tr>
+              <td><span class="kb-grade-badge grade-b">B</span></td>
+              <td>基本完整、略有瑕疵、橙色或淺紅</td>
+              <td>正常鮮美，偶有輕微異味</td>
+              <td>尚可，稍有顆粒感</td>
+              <td>中檔餐廳、家庭料理</td>
+              <td>HKD $400-700/kg</td>
+            </tr>
+            <tr>
+              <td><span class="kb-grade-badge grade-c">C</span></td>
+              <td>有明顯瑕疵或破碎、色澤較淡</td>
+              <td>普通，可能有腥味</td>
+              <td>較粗糙</td>
+              <td>加工食品、海膽調味醬</td>
+              <td>HKD $150-350/kg</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top:36px;">如何辨別品質等級</h3>
+        <div class="kb-card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="kb-card">
+            <h4>視覺檢查</h4>
+            <p>A級色澤鮮豔飽和、五瓣完整對稱、表面有自然光澤。B級色澤中等、略有變形。C級暗淡有斑點、破碎不完整。</p>
+          </div>
+          <div class="kb-card">
+            <h4>觸摸檢查</h4>
+            <p>A級柔軟有彈性，按壓後迅速恢復。B級略有硬度，稍有彈性。C級過硬或過軟，可能已變質。</p>
+          </div>
+          <div class="kb-card">
+            <h4>嗅覺檢查</h4>
+            <p>A級散發淡淡海水清香。B級正常海水味無異味。C級可能有腥味或刺鼻氣味。</p>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-top: 28px;">
+          <h3>餐廳選購建議</h3>
+          <ul>
+            <li><strong>高級日本料理：</strong>建議選用 A 級，品質直接影響出品水準。</li>
+            <li><strong>中檔餐廳：</strong>B 級性價比最高，適合日常供應。</li>
+            <li><strong>加工用途：</strong>C 級適合製作海膽醬、海膽意粉等調味用途。</li>
+            <li>A 級比 B 級通常貴 50%-100%，分級可能因批次、產地及季節而異。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 3: Storage -->
+      <div class="kb-panel" id="kb-storage">
+        <p>海膽是含水量極高、結構極為細嫩的食材，正確保存直接決定品質。以下是三種主要保存方法及新鮮度判斷指標。</p>
+
+        <ul class="kb-storage-list">
+          <li>
+            <h4>冷藏保存（0-4°C，可保存 2-3 天）</h4>
+            <p>用廚房紙巾輕輕吸乾表面水分，放入乾淨保鮮盒並覆蓋保鮮膜。放在冰箱中間層（避免門邊溫度波動），建議 1-2 天內食用。切勿水洗，表面水分會加速變質。</p>
+          </li>
+          <li>
+            <h4>冷凍保存（-18°C，可保存 1 個月）</h4>
+            <p>按每次使用量分裝，真空包裝排除空氣以減少凍傷，標記日期及等級。解凍時放入冷藏室緩慢解凍（推薦），避免室溫解凍。解凍後請勿再次冷凍。口感會略有下降，建議用於加工料理。</p>
+          </li>
+          <li>
+            <h4>冰鮮保存（接近 0°C，可保存 1-2 天）</h4>
+            <p>將海膽放入保鮮袋（不可直接接觸冰塊），放在冰塊上，置於保溫箱中。每隔幾小時更換冰塊。適合短期臨時保存或運輸途中。</p>
+          </li>
+        </ul>
+
+        <h3>新鮮度指標</h3>
+        <div class="kb-freshness-grid">
+          <div class="kb-freshness-box fresh">
+            <h4 style="color:var(--ocean-teal);">新鮮海膽特徵</h4>
+            <ul>
+              <li>顏色鮮豔橙黃或深紅</li>
+              <li>散發淡淡海水清香</li>
+              <li>質地飽滿有彈性</li>
+              <li>表面有自然光澤</li>
+              <li>刺活動自如（帶殼）</li>
+            </ul>
+          </div>
+          <div class="kb-freshness-box unfresh">
+            <h4 style="color:var(--coral);">不新鮮/變質特徵</h4>
+            <ul>
+              <li>顏色暗淡、灰白或變綠</li>
+              <li>散發腥臭、氨味或腐敗味</li>
+              <li>質地軟爛、黏稠或乾癟</li>
+              <li>表面無光澤或黏膩</li>
+              <li>刺脫落或不動（帶殼）</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-top: 28px;">
+          <h3>保存注意事項</h3>
+          <ul>
+            <li><strong>避免交叉污染：</strong>與生肉及其他海鮮分開存放。</li>
+            <li><strong>遠離異味食物：</strong>海膽極易吸收冰箱內其他食物的氣味。</li>
+            <li><strong>常溫極限：</strong>20-25°C 環境下海膽僅能保存約 2-4 小時。</li>
+            <li><strong>變質勿食：</strong>發現任何變質跡象請立即丟棄，變質海膽可能含有害細菌和毒素。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- === FAQ === -->
     <section id="faq">
       <h2>常見問題</h2>
@@ -1046,6 +1587,132 @@
 </script>
 
 <script src="https://cloudpipe-macao-app.vercel.app/spider-track.js" data-site="sea-urchin-delivery"></script>
+
+<!-- === CHATBOT WIDGET === -->
+<button class="chatbot-btn" id="chatbotBtn" onclick="toggleChatbot()" aria-label="開啟 AI 客服助手">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
+</button>
+
+<div class="chatbot-panel" id="chatbotPanel">
+  <div class="chatbot-header">
+    <div class="chatbot-avatar">🐚</div>
+    <div class="chatbot-header-info">
+      <h4>美波 - AI 客服助手</h4>
+      <span>海膽速遞智能客服</span>
+    </div>
+    <button class="chatbot-close" onclick="toggleChatbot()" aria-label="關閉聊天">&times;</button>
+  </div>
+  <div class="chatbot-messages" id="chatbotMessages">
+    <div class="chat-msg bot">您好！我是海膽速遞的客服助手美波 🐚 有什麼關於海膽的問題嗎？您可以問我品種、分級、保存方法、價格、訂購方式等。</div>
+  </div>
+  <div class="chatbot-input-area">
+    <input type="text" id="chatbotInput" placeholder="輸入您的問題..." autocomplete="off">
+    <button onclick="sendChatMessage()">發送</button>
+  </div>
+</div>
+
+<script>
+/* === Knowledge Base Tab Switching === */
+function switchKbTab(tabName) {
+  document.querySelectorAll('.kb-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.kb-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelector('[data-tab="' + tabName + '"]').classList.add('active');
+  document.getElementById('kb-' + tabName).classList.add('active');
+}
+
+/* === Chatbot Widget === */
+function toggleChatbot() {
+  var panel = document.getElementById('chatbotPanel');
+  panel.classList.toggle('open');
+  if (panel.classList.contains('open')) {
+    document.getElementById('chatbotInput').focus();
+  }
+}
+
+document.getElementById('chatbotInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') sendChatMessage();
+});
+
+function sendChatMessage() {
+  var input = document.getElementById('chatbotInput');
+  var msg = input.value.trim();
+  if (!msg) return;
+  appendMsg('user', msg);
+  input.value = '';
+  setTimeout(function() {
+    var reply = getKeywordReply(msg);
+    appendMsg('bot', reply);
+  }, 400);
+}
+
+function appendMsg(role, text) {
+  var box = document.getElementById('chatbotMessages');
+  var div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  div.textContent = text;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+/* === Keyword-based Knowledge Matcher === */
+/* TODO: Future MiniMax API integration via Cloudflare Worker endpoint:
+   POST https://client-ai-tracker.inariglobal.workers.dev/sea-urchin-delivery/chat
+   Body: { model: "MiniMax-Text-01", messages: [...], system: "你是海膽速遞的 AI 客服助手「美波」..." }
+*/
+function getKeywordReply(q) {
+  var s = q.toLowerCase();
+
+  /* Varieties / 品種 */
+  if (/品種|種類|馬糞|bafun|紫海膽|purple|赤海膽|加拿大|緬因|maine|智利|chile|澳洲|australia|variety|varieties/.test(s)) {
+    if (/馬糞|bafun/.test(s)) return '馬糞海膽（Bafun Uni）產自日本北海道，甘甜濃郁帶堅果香氣，入口即化。色澤鮮豔橙黃，最佳產季為 9月至 2月，適合刺身及壽司。我們的售價約 MOP 280-380/100g。';
+    if (/紫|purple/.test(s)) return '紫海膽（Purple Uni）產自日本東北，味道濃郁帶微苦及明顯海水鹹香，肉色深橘紅。最佳產季 11月至 3月，適合軍艦壽司及拌飯。售價約 MOP 220-300/100g。';
+    if (/赤/.test(s)) return '九州赤海膽是「海膽中的夢幻逸品」，產量僅馬糞海膽的十分之一。深橙紅色，入口先甘甜後轉為豐富海洋風味，帶堅果餘韻。產季 7-9月，售價約 MOP 350-480/100g。';
+    if (/加拿大|canadian/.test(s)) return '加拿大紅海膽產自不列顛哥倫比亞，甜美柔和帶濃郁奶香，大型個體可超過 10cm。全年供應，適合高級料理及宴會。';
+    if (/緬因|maine/.test(s)) return '緬因海膽產自美國緬因州，清甜爽口帶淡淡海洋鮮味。產季 5-10月，適合沙拉及前菜。';
+    if (/智利|chile/.test(s)) return '智利海膽價格實惠味道鮮美，帶獨特南美風味鹹香。產季 3-8月，適合家庭料理及餐廳備料。';
+    if (/澳洲|australia/.test(s)) return '澳洲海膽肉質結實風味獨特，帶微微甘甜。深綠色外殼、金黃色肉質。產季 6-11月，適合東南亞料理及創意菜式。';
+    return '我們供應六大海膽品種：馬糞海膽（北海道）、紫海膽（日本東北）、加拿大紅海膽、緬因海膽、智利海膽及澳洲海膽。其中店內主打日本三大品種：馬糞海膽（MOP 280-380）、紫海膽（MOP 220-300）、赤海膽（MOP 350-480）。想了解哪個品種的詳情？';
+  }
+
+  /* Grading / 分級 */
+  if (/分級|等級|grade|a級|b級|c級|品質/.test(s)) {
+    return '海膽分為三個等級：A級（頂級）— 完整飽滿、色澤鮮豔、甜美無苦味、入口即化，適合高級壽司店及宴會，約 HKD 800-1500/kg；B級（標準）— 基本完整、正常鮮美，適合中檔餐廳及家庭，約 HKD 400-700/kg；C級（經濟）— 有瑕疵，適合加工成海膽醬，約 HKD 150-350/kg。海膽速遞只供應 A 級以上品質。';
+  }
+
+  /* Storage / 保存 */
+  if (/保存|保質|保鮮|保管|存放|storage|冷藏|冷凍|解凍|新鮮|變質|過期/.test(s)) {
+    return '海膽保存方法：冷藏（0-4°C）可保存 2-3 天，建議 1-2 天內食用；冷凍（-18°C）可保存 1 個月，需真空包裝並避免重複解凍；冰鮮（近 0°C）保存 1-2 天。重要提示：切勿水洗海膽、遠離異味食物、常溫下僅能保存 2-4 小時。新鮮海膽應色澤鮮豔、有海水清香、飽滿有彈性。若發現顏色暗淡、有腥臭或氨味、質地軟爛，切勿食用。';
+  }
+
+  /* Price / 價格 */
+  if (/價格|幾錢|多少錢|price|收費|費用|報價|優惠|折扣|批發/.test(s)) {
+    return '海膽速遞價格（100g 木盒裝）：馬糞海膽 MOP 280-380、紫海膽 MOP 220-300、赤海膽 MOP 350-480（旺季 6-9月略高）。批發優惠：10 盒以上享 85 折，長期合約客戶更優惠。也有 250g 及 500g 大盒裝，單價更具競爭力。詳細報價歡迎透過 Telegram @seaurchinexpress 或致電 +853-6288-8888 查詢。';
+  }
+
+  /* Order / 訂購 */
+  if (/訂購|下單|訂|order|買|購買|怎麼買|如何買|付款|支付|mpay|微信|支付寶/.test(s)) {
+    return '訂購方式：Telegram @seaurchinexpress（即時回覆）/ WhatsApp +853-6288-8888 / 致電 +853-6288-8888（週一至六 09:00-20:00）。告知品種、數量、收貨日期及地址，30 分鐘內回覆。付款方式：現金、銀行轉帳、MPay、支付寶、微信支付。餐廳客戶可申請月結。首次合作餐廳可獲免費試吃樣品！';
+  }
+
+  /* Delivery / 配送 */
+  if (/配送|運費|送貨|delivery|快遞|速遞|幾時到|多久|澳門|珠海|大灣區|香港|深圳|廣州/.test(s)) {
+    return '配送資訊：澳門本地 24 小時內送達（滿 MOP 500 免運，未達收 MOP 30）。大灣區：珠海 MOP 50、中山/廣州 MOP 80、深圳 MOP 100、香港 MOP 120（滿 MOP 2,000 免運）。每週二、五從日本發貨，週四、日抵達澳門。特殊日期需提前 5 個工作天下單。';
+  }
+
+  /* Season / 季節 */
+  if (/季節|season|當造|最肥|幾月|旺季|產季|什麼時候/.test(s)) {
+    return '各品種最佳產季：馬糞海膽 9-2月 / 紫海膽 11-3月 / 赤海膽 7-9月 / 緬因海膽 5-10月 / 智利海膽 3-8月 / 澳洲海膽 6-11月 / 加拿大紅海膽全年供應。旺季（6-9月）價格略高但品質最佳。現在（3月）正是紫海膽的當造季節，推薦品嚐！';
+  }
+
+  /* Cold chain */
+  if (/冷鏈|溫控|運輸|物流|cold chain/.test(s)) {
+    return '海膽速遞採用全程 -2°C 至 2°C 冰溫帶冷鏈運輸（非冷凍），避免細胞結冰破壞口感。每箱貨物內置 IoT 溫度記錄儀，使用日本進口真空隔熱箱搭配食品級蓄冷劑。澳門本地使用專業冷藏配送車，大灣區經珠海冷鏈中轉站分發。';
+  }
+
+  /* Fallback */
+  return '感謝您的提問！我目前能回答關於海膽品種、分級標準、保存方法、價格、訂購方式、配送及季節等問題。您也可以直接聯繫我們：Telegram @seaurchinexpress 或致電 +853-6288-8888，專員會為您提供更詳細的資訊。';
+}
+</script>
 
 <!-- Baidu auto-push for Chinese search engine discovery -->
 <script>
