@@ -1633,16 +1633,44 @@ document.getElementById('chatbotInput').addEventListener('keydown', function(e) 
   if (e.key === 'Enter') sendChatMessage();
 });
 
-function sendChatMessage() {
+async function sendChatMessage() {
   var input = document.getElementById('chatbotInput');
   var msg = input.value.trim();
   if (!msg) return;
   appendMsg('user', msg);
   input.value = '';
-  setTimeout(function() {
-    var reply = getKeywordReply(msg);
-    appendMsg('bot', reply);
-  }, 400);
+
+  // 1. 先嘗試本地關鍵詞匹配（秒回）
+  var reply = getKeywordReply(msg);
+  var fallbackReply = '感謝您的提問！我目前能回答關於海膽品種、分級標準、保存方法、價格、訂購方式、配送及季節等問題。您也可以直接聯繫我們：Telegram @seaurchinexpress 或致電 +853-6288-8888，專員會為您提供更詳細的資訊。';
+
+  if (reply !== fallbackReply) {
+    setTimeout(function() { appendMsg('bot', reply); }, 400);
+    return;
+  }
+
+  // 2. Fallback 到 AI（MiniMax via Cloudflare Worker）
+  var thinking = document.createElement('div');
+  thinking.className = 'chat-msg bot';
+  thinking.textContent = '思考中...';
+  thinking.id = 'ai-thinking';
+  document.getElementById('chatbotMessages').appendChild(thinking);
+
+  try {
+    var r = await fetch('https://client-chat-worker.inariglobal.workers.dev/sea-urchin-delivery/chat', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({messages:[{role:'user',content:msg}], stream:false})
+    });
+    if (r.ok) {
+      var d = await r.json();
+      var aiReply = (d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content) || '';
+      aiReply = aiReply.replace(/<think>[\s\S]*?<\/think>\s*/g,'').trim();
+      if (aiReply) reply = aiReply;
+    }
+  } catch(e) {}
+
+  var te = document.getElementById('ai-thinking'); if (te) te.remove();
+  appendMsg('bot', reply);
 }
 
 function appendMsg(role, text) {
@@ -1655,10 +1683,7 @@ function appendMsg(role, text) {
 }
 
 /* === Keyword-based Knowledge Matcher === */
-/* TODO: Future MiniMax API integration via Cloudflare Worker endpoint:
-   POST https://client-ai-tracker.inariglobal.workers.dev/sea-urchin-delivery/chat
-   Body: { model: "MiniMax-Text-01", messages: [...], system: "你是海膽速遞的 AI 客服助手「美波」..." }
-*/
+/* MiniMax AI fallback: keyword miss → POST client-chat-worker.inariglobal.workers.dev/sea-urchin-delivery/chat */
 function getKeywordReply(q) {
   var s = q.toLowerCase();
 
