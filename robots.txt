@@ -87,3 +87,6 @@ User-agent: XiaoIce
 Allow: /
 
 Sitemap: https://inari-kira-isla.github.io/sea-urchin-delivery/sitemap.xml
+
+# AI-friendly structured content
+# llms.txt: https://inari-kira-isla.github.io/sea-urchin-delivery/llms.txt
