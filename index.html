@@ -1580,6 +1580,11 @@
   </ul>
 </section>
 
+<!-- Referrer Tracking -->
+<script>
+(function(){var s='sea-urchin-delivery',w='https://client-ai-tracker.inariglobal.workers.dev',r=document.referrer,t='direct';if(r){var h=new URL(r).hostname;if(/chatgpt\.com|openai\.com/.test(h))t='ai-chatgpt';else if(/perplexity\.ai/.test(h))t='ai-perplexity';else if(/claude\.ai|anthropic/.test(h))t='ai-claude';else if(/copilot\.microsoft|bing\.com\/chat/.test(h))t='ai-copilot';else if(/google\./.test(h))t='search-google';else if(/bing\.com/.test(h))t='search-bing';else if(/baidu\.com/.test(h))t='search-baidu';else if(/facebook|instagram|threads|twitter|x\.com|linkedin/.test(h))t='social';else t='referral';}try{navigator.sendBeacon(w+'/'+s+'/visit',JSON.stringify({ref_type:t,ref_url:r,page:location.pathname,ts:Date.now()}))}catch(e){}})();
+</script>
+
 <!-- AI Crawler Tracking — CloudPipe AEO Monitor -->
 <img src="https://client-ai-tracker.inariglobal.workers.dev/sea-urchin-delivery/pixel.gif" width="1" height="1" alt="" style="position:absolute;left:-9999px">
 <script>
