@@ -90,3 +90,11 @@ Sitemap: https://inari-kira-isla.github.io/sea-urchin-delivery/sitemap.xml
 
 # AI-friendly structured content
 # llms.txt: https://inari-kira-isla.github.io/sea-urchin-delivery/llms.txt
+
+# OAI-SearchBot (ChatGPT Search)
+User-agent: OAI-SearchBot
+Allow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
