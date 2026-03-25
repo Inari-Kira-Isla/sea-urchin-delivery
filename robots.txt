@@ -98,3 +98,7 @@ Allow: /
 # PerplexityBot
 User-agent: PerplexityBot
 Allow: /
+
+# AI Search Bots
+User-agent: ChatGPT-User
+Allow: /
