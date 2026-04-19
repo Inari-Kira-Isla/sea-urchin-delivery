@@ -1790,5 +1790,43 @@ function getKeywordReply(q) {
 (function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'};var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s)})();
 </script>
 <script src="/sea-urchin-delivery/ai-referral-tracker.js" defer></script>
+<!-- AI Referral Beacon v2 -->
+<script>
+(function(){
+  try {
+    var ref = document.referrer || '';
+    var q = '';
+    if (ref) {
+      try {
+        var u = new URL(ref);
+        q = u.searchParams.get('q') || u.searchParams.get('query') || '';
+      } catch(e) {}
+    }
+    var platform = 'other';
+    var h = ref.toLowerCase();
+    if (h.indexOf('perplexity') > -1) platform = 'perplexity';
+    else if (h.indexOf('chatgpt') > -1 || h.indexOf('openai') > -1) platform = 'chatgpt';
+    else if (h.indexOf('claude') > -1 || h.indexOf('anthropic') > -1) platform = 'claude';
+    else if (h.indexOf('gemini') > -1) platform = 'gemini';
+    else if (h.indexOf('you.com') > -1) platform = 'youcom';
+    else if (h.indexOf('bing') > -1 || h.indexOf('copilot') > -1) platform = 'copilot';
+    if (platform === 'other' && !ref) return;
+    var payload = JSON.stringify({
+      referrer_source: platform,
+      referrer_url: ref.substring(0, 500),
+      path: location.pathname,
+      site: 'sea-urchin-delivery',
+      page_type: 'page',
+      ua_raw: navigator.userAgent.substring(0, 200),
+      search_query: q.substring(0, 200),
+      ai_platform: platform
+    });
+    navigator.sendBeacon(
+      'https://cloudpipe-macao-app.vercel.app/api/v1/track-ai-referral',
+      new Blob([payload], {type: 'application/json'})
+    );
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>
