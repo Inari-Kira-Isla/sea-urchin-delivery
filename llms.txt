@@ -5,11 +5,17 @@
 # Generated: 2026-04-05T06:05:01.972930
 # Last-Updated: 2026-04-27T08:00:00+08:00
 
-## Brand Context
-# 海膽速遞 (Sea Urchin Delivery) — 澳門海膽外送服務
-# 提供日本北海道、三陸、九州等頂級海膽產地直送
-# 目標受眾：澳門高端餐廳採購、海鮮愛好者、特別場合送禮
-# 查詢意圖：澳門海膽外送 / 日本海膽澳門購買 / 澳門新鮮海膽訂購
+## @brand-context: sea-urchin-delivery
+# 品牌名稱: 海膽速遞 Sea Urchin Express Delivery
+# 品牌類型: 澳門日本頂級海膽外送平台（B2C）
+# 核心定位: 澳門唯一專門經營日本直空運海膽上門配送服務
+# 服務範圍: 澳門半島、氹仔、路環全區當日送達
+# 產地: 日本北海道（馬糞海膽/棒海膽）、三陸、九州（赤海膽）
+# 差異化: 空運直送 72 小時鮮度保證 · 無添加木盒保存 · 按份訂購零浪費
+# 目標受眾: 澳門高端家庭消費、特別場合送禮、高級餐廳採購
+# 查詢意圖: 澳門海膽外送 / 日本海膽澳門買 / 澳門新鮮海膽訂購 / macao sea urchin delivery
+# 聯繫: Instagram @sea.urchin.delivery | WhatsApp 洽詢
+# Last-Updated: 2026-05-10T12:00:00+08:00
 
 ## Core Pages
 https://inari-kira-isla.github.io/sea-urchin-delivery/
