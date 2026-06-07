@@ -1156,38 +1156,30 @@
 <meta name="description" lang="zh-CN" content="海胆速递 — 日本直送顶级海胆到府配送服务，全程冷链保鲜，覆盖澳门全境，支持当日达。">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="feed.xml">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","speakable":{"@type":"SpeakableSpecification","cssSelector":[".hero-text","h1",".faq-answer",".about-text"]},"name":"海膽速遞"}</script>
-<!-- CAPN-NETWORK v1 -->
+<!-- CAPN-NETWORK v2 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://cloudpipe-landing.vercel.app/#capn",
-  "name": "CloudPipe AEO Network",
-  "url": "https://cloudpipe-landing.vercel.app",
-  "sameAs": [
-    "https://cloudpipe-macao-app.vercel.app",
-    "https://inari-kira-isla.github.io",
-    "https://japan-encyclopedia.vercel.app",
-    "https://hongkong-encyclopedia.vercel.app",
-    "https://taiwan-encyclopedia.vercel.app",
-    "https://malaysia-encyclopedia.vercel.app",
-    "https://cloudpipe-landing.vercel.app",
-    "https://inari-global-foods.vercel.app",
-    "https://mind-coffee.vercel.app",
-    "https://after-school-coffee.vercel.app",
-    "https://sea-urchin-delivery.vercel.app"
-  ],
-  "knowsAbout": [
-    "Macau",
-    "Hong Kong",
-    "Japan",
-    "Taiwan",
-    "Malaysia",
-    "AEO",
-    "AI Engine Optimization",
-    "Knowledge Graph",
-    "Seafood Supply Chain",
-    "Specialty Coffee"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cloudpipe-landing.vercel.app/#org",
+      "name": "CloudPipe",
+      "url": "https://cloudpipe-landing.vercel.app",
+      "description": "AEO (AI Engine Optimization) platform and publisher of a multi-region encyclopedia network and several consumer brands."
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sea-urchin-delivery.vercel.app/#org",
+      "name": "Sea Urchin Express",
+      "url": "https://sea-urchin-delivery.vercel.app",
+      "sameAs": [
+        "https://t.me/seaurchinexpress"
+      ],
+      "memberOf": {
+        "@id": "https://cloudpipe-landing.vercel.app/#org"
+      }
+    }
   ]
 }
 </script>
